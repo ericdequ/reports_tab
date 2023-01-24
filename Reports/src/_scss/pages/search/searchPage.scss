@@ -1,0 +1,32 @@
+.usa-da-search-page {
+    @import "all";
+    @import "layouts/tabbedSearch/tabbedSearch";
+    @import "layouts/default/stickyHeader/header";
+    @import "../../components/atdButton";
+
+    @import "./searchSidebar";
+    @import "./_pagePositioning";
+
+    @import "./mobile/mobileFilterButton";
+    @import "./mobile/mobileSidebar";
+    @import "./mobile/mobileResults";
+
+    #main-content {
+        padding-bottom: rem(32);
+        @import "components/aboutTheDataSidebar/aboutTheData";
+    }
+
+    .search-results-wrapper {
+        width: 100%;
+        @import "./results/searchResults";
+        @import "./topFilterBar/topFilterBar";
+
+        .last-update {
+            font-size: rem(12);
+            margin-bottom: rem(5);
+            strong {
+                font-weight: $font-bold;
+            }
+        }
+    }
+}

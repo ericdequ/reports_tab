@@ -1,0 +1,107 @@
+.recipient-content {
+	background-color: $color-white;
+	box-shadow: $container-shadow;
+	color: $color-base;
+	border-top: 1px solid $color-gray-border;
+	border-right: 1px solid $color-gray-border;
+	border-bottom: 1px solid $color-gray-border;
+
+	.recipient-section {
+		padding: rem(30);
+
+		h3.recipient-section__title {
+			margin: 0;
+			font-size: $h3-font-size;
+			font-weight: 300;
+			line-height: rem(47);
+		}
+
+		.recipient-section__description {
+			font-size: $lead-font-size;
+			font-weight: 300;
+			line-height: rem(25);
+			padding-bottom: rem(35);
+		}
+
+		hr.results-divider {
+			margin-bottom: rem(15);
+			margin-top: rem(5);
+		}
+
+		.recipient-section__row {
+			width: 100%;
+			@include media($tablet-screen) {
+				@include display(flex);
+			}
+
+			.totals-container {
+				@include media($tablet-screen) {
+					@include flex(1 1 50%);
+					@include flex-direction(column);
+					margin-right: rem(10);
+				}
+
+				.loan {
+					margin-top: rem(50);
+					margin-left: 0;
+					@include flex(1 1 50%);
+
+					.totals__header {
+						@include display(flex);
+						@include align-items(center);
+					}
+
+					.recipient-overview__heading {
+						float: left;
+					}
+
+					.tooltip-wrapper {
+						@include display(inline-block);
+						float: left;
+	
+						.recipient-overview-tooltip {
+							@include display(inline-block);
+							width: 100%;
+						}
+
+						svg {
+							height: rem(20);
+							width: rem(20);
+						}
+					}
+
+					.totals__amount {
+						clear: both;
+					}
+				}
+			}
+			.recipient-section__viz {
+				width: 100%;
+				@include media($tablet-screen) {
+					@include flex(1 1 50%);
+				}
+
+				.recipient-section__award-button {
+					@include display(flex);
+					@include flex(0 0 auto);
+					@include align-items(center);
+					@include button-unstyled;
+					color: $color-primary;
+					margin-top: rem(16);
+					font-size: rem(14);
+					width: fit-content;
+					&:hover {
+						color: $color-primary-darker;
+						svg {
+							fill: $color-primary-darker;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@import "./overview";
+	@import "./spendingOverTime/recipientTimeVisualization";
+}
+

@@ -1,0 +1,132 @@
+// Footer Variables
+$footer-horizontal: 920px;
+
+.footer-outer-wrap {
+    background-color: #333;
+    color: $color-white;
+    font-size: $base-font-size;
+    padding-top: rem(40);
+    width: 100%;
+
+    .footer-container {
+        @include outer-container;
+        @include pad(0 0 rem(15));
+        max-width: $site-max-width;
+        @include flex-wrap(wrap);
+
+        @include media($footer-horizontal) {
+            @include pad(0 rem(30) rem(40));
+            @include display(flex);
+            @include align-items(flex-start);
+            @include justify-content(flex-start);
+        }
+    }
+
+    .legal-and-social-links {
+        @include display(flex);
+        @include flex-direction(column);
+        width: 100%;
+
+        @include media($footer-horizontal) {
+            @include justify-content(space-between);
+            @include flex-direction(row);
+            @include align-items(center);
+            margin-top: rem(75);
+        }
+    }
+
+    .legal-links {
+        list-style-type: none;
+        padding: 0;
+        margin: 0 0 rem(20);
+        @include display(flex);
+        @include flex-direction(column);
+        @include align-items(center);
+        order: 2;
+
+        @include media($footer-horizontal) {
+            @include flex-direction(row);
+            @include align-items(flex-start);
+            order: 1;
+        }
+
+        .copyright__legal-item {
+            margin: 0 0 rem(5);
+            display: flex;
+            justify-content: center;
+            @include align-items(center);
+            @include flex(0 1 auto);
+
+            @include media($footer-horizontal) {
+                margin-right: rem(10);
+
+                &::before {
+                    content: '|';
+                    font-size: 80%;
+                    color: $color-gray-light;
+                    margin-right: rem(10);
+                }
+
+                &:first-child {
+                    &::before {
+                        content: '';
+                        font-size: 0;
+                        margin-right: 0;
+                    }
+                }
+            }
+
+            .copyright__link {
+                font-size: $small-font-size;
+                color: $color-gray-light;
+                text-decoration: none;
+                padding: rem(5) rem(10);
+
+                &:hover, &:active {
+                    color: $color-white;
+                }
+
+                @include media($footer-horizontal) {
+                    padding: 0;
+                    font-size: rem(16);
+                }
+            }
+        }
+    }
+
+    .social-links {
+        list-style-type: none;
+        padding: 0;
+        margin: 0 0 rem(20);
+        order: 1;
+        @include display(flex);
+        @include justify-content(center);
+
+        @include media($footer-horizontal) {
+            order: 2;
+        }
+
+        .social-link {
+            margin: 0;
+            padding: 0 rem(15);
+
+            &:hover {
+                svg {
+                    color: white;
+                }
+            }
+
+            button {
+                @include button-unstyled;
+                font-size: rem(32);
+            }
+        }
+    }
+}
+
+// Footer Component Imports
+@import "./footerLogo";
+@import "./footerLinks";
+@import "./footerCopyright";
+@import "./downloadBottomBar";
+@import "./stayInTouch";

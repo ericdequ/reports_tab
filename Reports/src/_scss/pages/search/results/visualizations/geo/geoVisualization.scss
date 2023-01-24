@@ -1,0 +1,33 @@
+.results-visualization-geo-section {
+    position: relative;
+    @import "./_topSection";
+
+    h2.visualization-title {
+        @include h3;
+        margin: 0;
+    }
+
+    .map-container {
+        height: rem(475);
+        width: 100%;
+    }
+    @import "./map/map";
+    .visualization-tooltip {
+        @import "components/visualizations/tooltip/_tooltip";
+    }
+    //HIDE THE MAPBOX COMPASS CONTROLS
+    & .mapboxgl-ctrl-compass {
+        display: none !important;
+    }
+    //Hide info button that was added after mapbox package update to v1.13.0
+    & .mapboxgl-ctrl-attrib-button {
+        display: none !important;
+    }
+
+    @import "./_disclaimer";
+    @import "./_message";
+    @import 'components/Note';
+    .default-note {
+      padding-top: 0;
+    }
+}

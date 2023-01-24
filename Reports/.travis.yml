@@ -1,0 +1,32 @@
+language: node_js
+node_js:
+  - "16.14.2"
+# Need a C++ compiler
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
+  chrome: stable
+env:
+  - CXX=g++-4.8
+cache:
+  directories:
+    - node_modules
+before_install:
+  - npm install -g @lhci/cli@0.9.x
+  - npm install -g webpack@5.67.0
+  - npm install -g webpack-cli@4.10.0
+install:
+  - npm ci --legacy-peer-deps
+script:
+  - npm run dev
+  - npm run travis
+  - npm run lhci:audit
+  - npm run lhci:desktop
+after_success:
+  - npm install -g codeclimate-test-reporter
+  - codeclimate-test-reporter < coverage/lcov.info
+notifications:
+  email: false
